@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200939957625",
+    "project_id": "contact-book-11136",
+    "storage_bucket": "contact-book-11136.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200939957625:android:c3f249a08f13c1c8d0d3a8",
+        "android_client_info": {
+          "package_name": "com.example.contactbook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8VdwtD8lVAfx6A7Jv8Qf4IOkuviGGyMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
