@@ -25,10 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Add_contact extends AppCompatActivity {
-        Button save,view;
-        EditText fname,phone,surname;
+    Button save, view;
+    EditText fname, phone, surname;
 
-        DatabaseReference databaseUsers;
+    DatabaseReference databaseUsers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class Add_contact extends AppCompatActivity {
         surname = findViewById(R.id.surname);
 
 
-    databaseUsers = FirebaseDatabase.getInstance().getReference();
+        databaseUsers = FirebaseDatabase.getInstance().getReference();
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,16 +58,16 @@ public class Add_contact extends AppCompatActivity {
 
                 // If validation passes, insert data
                 InsertData();
-                startActivity(new Intent(Add_contact.this,Userlist.class));
+                startActivity(new Intent(Add_contact.this, Userlist.class));
             }
         });
-    view.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            startActivity(new Intent(Add_contact.this,Userlist.class));
-            finish();
-        }
-    });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Add_contact.this, Userlist.class));
+                finish();
+            }
+        });
 
     }
 
@@ -77,7 +78,7 @@ public class Add_contact extends AppCompatActivity {
         String userNumber = phone.getText().toString().trim();
         String id = databaseUsers.push().getKey();
 
-        User user = new User(fullName, userNumber);
+        User user = new User(fullName, userNumber, id);
         databaseUsers.child("users").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

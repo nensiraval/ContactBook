@@ -53,4 +53,6 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.firebaseui:firebase-ui-database:8.0.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    //    implementation("com.google.android.gms:play-services-auth:18.1.0")
+    implementation("com.google.firebase:firebase-messaging")
 }

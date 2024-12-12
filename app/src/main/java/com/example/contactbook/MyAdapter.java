@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     static Context context;
-    private String userId;
     private DatabaseReference mDatabase;
 
     public MyAdapter(Context context, ArrayList<User> list) {
@@ -32,10 +31,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     ArrayList<User> list;
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.userentry,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.userentry, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -51,8 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                 Intent intent = new Intent(context, EditPage.class);
 
-                intent.putExtra("name", user.getName());
-                intent.putExtra("number", user.getNumber());
+                intent.putExtra("userModel", user);
 
                 context.startActivity(intent);
             }
@@ -66,13 +65,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 dialog.show();
 
                 dialog.setCancelable(false);
-                TextView tidelete= dialog.findViewById(R.id.tidelete);
+                TextView tidelete = dialog.findViewById(R.id.tidelete);
                 Button cancel = dialog.findViewById(R.id.cancel);
                 Button delete = dialog.findViewById(R.id.delete);
 
                 tidelete.getText();
-                cancel.setOnClickListener(new View.OnClickListener()
-                {
+                cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
@@ -84,8 +82,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     public void onClick(View v) {
                         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-                        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+                        mDatabase = FirebaseDatabase.getInstance().getReference()
+                                .child("users").child(user.getId());
                         mDatabase.removeValue();
+                        dialog.dismiss();
                     }
                 });
             }
@@ -99,7 +99,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name,number,edit,delet;
+        TextView name, number, edit, delet;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.textname);

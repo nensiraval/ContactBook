@@ -5,40 +5,40 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#fdebdd"
     tools:context=".Register_Page">
 
     <TextView
         android:id="@+id/rs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
         android:text="Register"
         android:textColor="@color/black"
         android:textSize="30dp"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/rs"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:hint="Username"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
-        app:boxStrokeWidth="3dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:hintTextColor="@color/black"
-        app:startIconTint="@color/black"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="3dp"
+        app:hintTextColor="@color/black"
         app:startIconDrawable="@drawable/baseline_account_circle_24"
-        android:layout_below="@id/rs">
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/user"
@@ -51,21 +51,21 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/username"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:hint="Email"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
-        app:boxStrokeWidth="3dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:hintTextColor="@color/black"
-        app:startIconTint="@color/black"
-        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="3dp"
+        app:hintTextColor="@color/black"
         app:startIconDrawable="@drawable/baseline_email_24"
-        android:layout_below="@id/username">
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailtext"
@@ -78,22 +78,22 @@
         android:id="@+id/pastext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/email"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:hint="Password"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
-        app:boxStrokeWidth="3dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:hintTextColor="@color/black"
-        app:startIconTint="@color/black"
-        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="3dp"
         app:endIconMode="password_toggle"
+        app:hintTextColor="@color/black"
         app:startIconDrawable="@drawable/baseline_vpn_key_24"
-        android:layout_below="@id/email">
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passtext"
@@ -106,28 +106,28 @@
         android:id="@+id/cntext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/pastext"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:hint="Confirm Password"
-        app:boxCornerRadiusBottomEnd="20dp"
-        app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
-        app:boxStrokeWidth="3dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:hintTextColor="@color/black"
-        app:startIconTint="@color/black"
-        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="3dp"
         app:endIconMode="password_toggle"
+        app:hintTextColor="@color/black"
         app:startIconDrawable="@drawable/baseline_vpn_key_24"
-        android:layout_below="@id/pastext">
+        app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -135,51 +135,28 @@
         android:id="@+id/register"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:text="Register"
-        android:textSize="20dp"
+        android:layout_below="@id/cntext"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_below="@id/cntext"/>
+        android:backgroundTint="@color/black"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
-
-
-    <TextView
-        android:id="@+id/or"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register"
-        android:text="or"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"/>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/bt_sign_in"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/or"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Login"
-        android:textSize="16sp"
-        android:textColor="@color/black"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginBottom="20dp"
+        android:text="Don't have an account? Login"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>

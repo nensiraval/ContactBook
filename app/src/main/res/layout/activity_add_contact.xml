@@ -3,104 +3,104 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="#fdebdd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fdebdd"
     tools:context=".Add_contact">
 
     <ImageView
         android:id="@+id/photo"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="30dp"
-        android:src="@drawable/baseline_add_a_photo_24"/>
+        android:src="@drawable/baseline_add_a_photo_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginTop="147dp"
         android:src="@drawable/baseline_account_circle_24"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fname"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="147dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/fname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/photo"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
         android:hint="First name"
         android:textColor="@color/black"
-        android:textColorHint="#434343"/>
+        android:textColorHint="#434343"
+        app:layout_constraintTop_toBottomOf="@id/photo" />
 
     <EditText
         android:id="@+id/surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/fname"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
         android:drawablePadding="20dp"
         android:hint="Surname"
         android:textColor="@color/black"
-        android:textColorHint="#434343"/>
+        android:textColorHint="#434343"
+        app:layout_constraintTop_toBottomOf="@id/fname" />
 
     <ImageView
         android:id="@+id/call"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_margin="98dp"
         android:src="@drawable/baseline_phone_24"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/phone"
-        app:layout_constraintTop_toBottomOf="@id/fname"
-        android:layout_margin="98dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fname" />
 
     <EditText
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/surname"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"
-        android:inputType="number"
+        android:layout_marginEnd="20dp"
         android:hint="Number"
+        android:inputType="number"
         android:textColor="@color/black"
-        android:textColorHint="#434343"/>
+        android:textColorHint="#434343"
+        app:layout_constraintTop_toBottomOf="@id/surname" />
 
 
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/black"
+        android:text="Save"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:text="Save"
-        app:layout_constraintTop_toBottomOf="@id/phone"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="100dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone" />
 
     <Button
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
+        android:text="View Data"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:text="View Data"
-        app:layout_constraintTop_toBottomOf="@id/save"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

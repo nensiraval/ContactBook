@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "200939957625",
+    "firebase_url": "https://contact-book-11136-default-rtdb.firebaseio.com",
     "project_id": "contact-book-11136",
     "storage_bucket": "contact-book-11136.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.contactbook"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "200939957625-8v0sp79n3tuu2sgld4f9g6gr55dm7okm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.contactbook",
+            "certificate_hash": "c213287ed15b9bc2452d49d92b35272fdee38183"
+          }
+        },
+        {
+          "client_id": "200939957625-ttcq05gd0d8gbthl8bsrc0bi0d9b8osv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB8VdwtD8lVAfx6A7Jv8Qf4IOkuviGGyMM"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200939957625-ttcq05gd0d8gbthl8bsrc0bi0d9b8osv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

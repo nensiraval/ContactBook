@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="12dp"
-        android:id="@+id/cardview"
-        android:backgroundTint="#F2EFEF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
-        app:cardCornerRadius="12dp">
+        android:backgroundTint="#F2EFEF"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,65 +27,67 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name  : "
-                    android:textSize="20dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
                     android:layout_marginStart="5dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_vertical">
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Number  : "
-                    android:textSize="20dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textnumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
                     android:layout_marginStart="5dp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="12dp"
-        android:id="@+id/cardview1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:background="#E0DDDD"
         android:backgroundTint="#F2EFEF"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="10dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,37 +100,36 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginEnd="20dp"
+                android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center">
+
                 <TextView
                     android:id="@+id/edit"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="20dp"
+                android:layout_weight="1"
                 android:background="@drawable/border"
                 android:gravity="center">
+
                 <TextView
                     android:id="@+id/delet"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/trash"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

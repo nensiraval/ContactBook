@@ -23,19 +23,17 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SharedPreferences preferences = getSharedPreferences("MyData",MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("MyData", MODE_PRIVATE);
 
-                Boolean check = preferences.getBoolean("data",false);
+                Boolean check = preferences.getBoolean("data", false);
 
-                if (check)
-                {
+                if (check) {
                     startActivity(new Intent(MainActivity.this, Userlist.class));
-                }
-                else {
+                } else {
                     startActivity(new Intent(MainActivity.this, Login_Page.class));
                     finish();
                 }
             }
-        },2000);
+        }, 2000);
     }
 }

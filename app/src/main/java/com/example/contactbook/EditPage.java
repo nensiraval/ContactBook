@@ -9,11 +9,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,8 +25,7 @@ public class EditPage extends AppCompatActivity {
 
     EditText name, number;
     Button SaveEdit;
-    private String userId;
-    private DatabaseReference mDatabase;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,43 +36,34 @@ public class EditPage extends AppCompatActivity {
         number = findViewById(R.id.number);
         SaveEdit = findViewById(R.id.SaveEdit);
 
-        String uname = getIntent().getStringExtra("name");
-        String unumber = getIntent().getStringExtra("number");
+        user = (User) getIntent().getSerializableExtra("userModel");
 
-//        Intent intent = getIntent();
-//        String uname = intent.getStringExtra("name");
-//        String unumber = intent.getStringExtra("number");
-//        userId = intent.getStringExtra("userId");
 
-        name.setText(uname);
-        number.setText(unumber);
+        name.setText(user.getName());
+        number.setText(user.getNumber());
 
-//        if (userId == null || uname == null || unumber == null) {
-//            Log.e("++++++++", "onCreate: " );
-//            Toast.makeText(this, "Error: Missing data", Toast.LENGTH_SHORT).show();
-//            finish(); // Close the activity if data is missing
-//            return;
-//        }
-
-       // mDatabase = FirebaseDatabase.getInstance().getReference("users").child(userId);
 
         SaveEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditPage.this, Userlist.class));
-//                String newName = name.getText().toString();
-//                String newNumber = number.getText().toString();
-//
-//                mDatabase.child("name").setValue(newName);
-//                mDatabase.child("number").setValue(newNumber).addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        Toast.makeText(EditPage.this, "Contact updated successfully", Toast.LENGTH_SHORT).show();
-//                        startActivity(new Intent(EditPage.this, Userlist.class));
-//                        finish();
-//                    } else {
-//                        Toast.makeText(EditPage.this, "Failed to update contact", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+
+                user.setName(name.getText().toString());
+                user.setNumber(number.getText().toString());
+
+                DatabaseReference databaseUsers = FirebaseDatabase.getInstance().getReference();
+                databaseUsers.child("users").child(user.getId()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(EditPage.this, "User data update successfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(EditPage.this, "Failed to update user data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
             }
         });
     }
