@@ -64,13 +64,10 @@ public class Login_Page extends AppCompatActivity {
                 .requestEmail()
                 .build();
 
-        // Initialize sign in client
         googleSignInClient = GoogleSignIn.getClient(Login_Page.this, googleSignInOptions);
 
         bt_sign_in.setOnClickListener((View.OnClickListener) view -> {
-            // Initialize sign in intent
             Intent intent = googleSignInClient.getSignInIntent();
-            // Start activity for result
             startActivityForResult(intent, 100);
         });
 
@@ -112,35 +109,22 @@ public class Login_Page extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Check condition
         if (requestCode == 100) {
-            // When request code is equal to 100 initialize task
             Task<GoogleSignInAccount> signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data);
-            // check condition
             if (signInAccountTask.isSuccessful()) {
-                // When google sign in successful initialize string
                 String s = "Google sign in successful";
-                // Display Toast
                 displayToast(s);
-                // Initialize sign in account
                 try {
-                    // Initialize sign in account
                     GoogleSignInAccount googleSignInAccount = signInAccountTask.getResult(ApiException.class);
-                    // Check condition
                     if (googleSignInAccount != null) {
-                        // When sign in account is not equal to null initialize auth credential
                         AuthCredential authCredential = GoogleAuthProvider.getCredential(googleSignInAccount.getIdToken(), null);
-                        // Check credential
                         mAuth.signInWithCredential(authCredential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                // Check condition
                                 if (task.isSuccessful()) {
-                                    // When task is successful redirect to profile activity display Toast
                                     startActivity(new Intent(Login_Page.this, Userlist.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                                     displayToast("Firebase authentication successful");
                                 } else {
-                                    // When task is unsuccessful display Toast
                                     displayToast("Authentication Failed :" + task.getException().getMessage());
                                     Log.e("++++++++++++", "failed: ");
                                 }
@@ -164,7 +148,6 @@ public class Login_Page extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d("========", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Login_Page.this, "Authentication success.",
@@ -173,7 +156,6 @@ public class Login_Page extends AppCompatActivity {
                             startActivity(new Intent(Login_Page.this, Userlist.class));
                             finish();
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w("____________}", "signInWithEmail:failure", task.getException());
                             Toast.makeText(Login_Page.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -187,27 +169,22 @@ public class Login_Page extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            // User is already signed in; navigate accordingly
         }
     }
 
 
     private final ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
         if (isGranted) {
-            // FCM SDK (and your app) can post notifications.
         } else {
-            // TODO: Inform user that that your app will not show notifications.
         }
     });
     private void askNotificationPermission() {
-        // This is only necessary for API level >= 33 (TIRAMISU)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED){
 
             } else if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
 
             } else {
-                // Directly ask for the permission
                 requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
             }
         }

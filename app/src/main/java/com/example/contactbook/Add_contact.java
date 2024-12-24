@@ -55,8 +55,6 @@ public class Add_contact extends AppCompatActivity {
                     phone.setError("Limited Digits 10");
                     return;
                 }
-
-                // If validation passes, insert data
                 InsertData();
                 startActivity(new Intent(Add_contact.this, Userlist.class));
             }

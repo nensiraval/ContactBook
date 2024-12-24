@@ -63,7 +63,6 @@ public class EditPage extends AppCompatActivity {
                     }
                 });
 
-
             }
         });
     }

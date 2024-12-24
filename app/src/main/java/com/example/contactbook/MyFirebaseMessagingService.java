@@ -28,7 +28,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             showNotification();
         }
     }
-    // Method to display the notifications
     public void showNotification()
     {
         Intent intent = new Intent(this, MainActivity.class);

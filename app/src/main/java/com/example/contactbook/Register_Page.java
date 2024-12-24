@@ -66,11 +66,10 @@ public class Register_Page extends AppCompatActivity {
                     return;
                 }
 
-                //number required check
                 String number = passtext.getText().toString();
                 if (!number.isEmpty()) {
                     passtext.setError("number if required");
-                } else if (number.length() < 6) //number 10 digit na j ave ana mate
+                } else if (number.length() < 6)
                 {
                     passtext.setError("Limited Digits 6");
                     return;
@@ -92,13 +91,11 @@ public class Register_Page extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d("+++++++++++", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Register_Page.this, "Authentication Sucess.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w("+++++++++", "createUserWithEmail:failure", task.getException());
                             Toast.makeText(Register_Page.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -106,11 +103,9 @@ public class Register_Page extends AppCompatActivity {
                     }
                 });
     }
-
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
         }

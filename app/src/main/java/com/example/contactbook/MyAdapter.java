@@ -24,12 +24,10 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     static Context context;
     private DatabaseReference mDatabase;
-
     public MyAdapter(Context context, ArrayList<User> list) {
         this.context = context;
         this.list = list;
     }
-
     ArrayList<User> list;
 
     @NonNull
